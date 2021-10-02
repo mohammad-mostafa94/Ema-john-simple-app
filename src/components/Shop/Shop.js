@@ -7,11 +7,16 @@ const Shop = () => {
     const [products,setProducts] = useState([]);
     const [cart , setCart] = useState([]);
 
+    const [displayProduct,setDisplayProduct] = useState([]);
+
     // JSON file load here
     useEffect( () => {
         fetch("./products.JSON")
         .then(res => res.json())
-        .then(data => setProducts(data));
+        .then(data =>{
+            setProducts(data);
+            setDisplayProduct(data);
+        } )
     },[]);
 
     // localStorage data load here
@@ -25,8 +30,8 @@ const Shop = () => {
 
                 if (addedProduct) {
                     const quantity = saveData[key];
-                addedProduct.quantity = quantity;
-                storeCart.push(addedProduct);
+                    addedProduct.quantity = quantity;
+                    storeCart.push(addedProduct);
                 }
                 
             }
@@ -43,15 +48,24 @@ const Shop = () => {
         addToCart(product.key);
     }
 
+    const searchHandle = event =>{
+        const searchProduct = event.target.value;
+        const matchedProduct = products.filter(product => product.name.toLowerCase().includes(searchProduct.toLowerCase()));
+        setDisplayProduct(matchedProduct);
+    }
+
     return (
         <>
             <div className="search-container">
-                <input type="text"  placeholder= 'Search product'/>
+                <input type="text"  placeholder= 'Search product'
+                    onChange ={searchHandle}
+                />
+                
             </div>
             <div className="shop-container">
             <div className="product-container">
                 {
-                    products.map((product) =><Product
+                    displayProduct.map((product) =><Product
                     key={product.key}
                     product ={product}
                     handleAddToCart = {handleAddToCart}
