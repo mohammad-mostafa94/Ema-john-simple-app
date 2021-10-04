@@ -21,5 +21,11 @@
 }
 
 .cart-container {
-    margin-left: 15px;
+    background-color: aquamarine;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 15px;
+    position: sticky;
+    top: 0;
+    height: 410px;
 }

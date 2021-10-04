@@ -4,28 +4,24 @@ const Cart = (props) => {
 
     const {cart } = props;
     
-    // const total = cart.reduce((previous,product) => {return previous + product.price},0);
+    // total price
+    const total = cart.reduce((previous,product) =>previous + product.price,0);
 
 
-    // const totalQuantity = cart.reduce((previous,product)=> {
-    //     return previous + product.quantity;
-    // },0);
+    // const totalQuantity = cart.reduce((previous,product)=>  previous + product.quantity
+    // ,0);
 
-    let total = 0;
+    // let total = 0;
     let totalQuantity = 0;
     
     for (const product of cart) {
-        if (!product.quantity) {
-            product.quantity = 1;
-        }
+        (!product.quantity) && (product.quantity = 1);
         
-        total  = total + product.price * product.quantity;
-        totalQuantity = totalQuantity + product.quantity;
-        console.log("totalQuantity:",totalQuantity,"product quantity:",product.quantity);
-    }
-    // console.log(totalQuantity);
+        // total  = total + product.price * product.quantity;
 
-    // console.log(cart);
+        (totalQuantity) ?(totalQuantity = totalQuantity + 1):(totalQuantity =  totalQuantity + product.quantity);
+        
+    }
     const shipping = total > 0 ? 15 : 0;
     const tax = (total + shipping) * 0.10;
     const gradTotal = total + shipping + tax;
