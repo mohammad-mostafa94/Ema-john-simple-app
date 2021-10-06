@@ -34,6 +34,7 @@ const Cart = (props) => {
             <h3>Tax : {tax.toFixed(2)}</h3>
             <hr/>
             <h2>Grand total: {gradTotal.toFixed(2)}</h2>
+            {props.children}
         </div>
     );
 };
