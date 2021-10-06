@@ -1,4 +1,7 @@
 # Ema john simple app
+Live link: 
 
 ## Properties:
-- React routing
+- Calculation of cart buying product
+- Remove order product
+- React routing system use for easily change main page to any another page moved
