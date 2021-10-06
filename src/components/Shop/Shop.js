@@ -5,6 +5,7 @@ import { addToCart, getStoreCart } from '../utilities/fakedb';
 import "./Shop.css";
 const Shop = () => {
     const [products,setProducts] = useState([]);
+    console.log(products);
     const [cart , setCart] = useState([]);
 
     const [displayProduct,setDisplayProduct] = useState([]);
@@ -33,7 +34,6 @@ const Shop = () => {
                     addedProduct.quantity = quantity;
                     storeCart.push(addedProduct);
                 }
-                
             }
             setCart(storeCart);
         }
