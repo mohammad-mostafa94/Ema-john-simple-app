@@ -1,5 +1,5 @@
 # Ema john simple app
-Live link: 
+Live link: https://ema-john-simple-shopin-app.netlify.app/
 
 ## Properties:
 - Calculation of cart buying product
