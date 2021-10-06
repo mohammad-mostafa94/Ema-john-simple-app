@@ -5,3 +5,5 @@ Live link:
 - Calculation of cart buying product
 - Remove order product
 - React routing system use for easily change main page to any another page moved
+- Checking order review
+
